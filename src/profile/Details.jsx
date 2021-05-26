@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {BsPencilSquare} from 'react-icons/bs'
 
 import { accountService } from '@/_services';
 
@@ -9,12 +10,12 @@ function Details({ match }) {
 
     return (
         <div>
-            <h1>My Profile</h1>
+            <h1>Мой профиль</h1>
             <p>
-                <strong>Name: </strong> {user.title} {user.firstName} {user.lastName}<br />
-                <strong>Email: </strong> {user.email}
+                <strong>Имя: </strong> {user.title} {user.firstName} {user.lastName}<br />
+                <strong>Почта: </strong> {user.email}
             </p>
-            <p><Link to={`${path}/update`}>Update Profile</Link></p>
+            <p><Link to={`${path}/update`}>Обновить профиль <BsPencilSquare /></Link></p>
         </div>
     );
 }

@@ -65,12 +65,12 @@ function ResetPassword({ history }) {
                 {({ errors, touched, isSubmitting }) => (
                     <Form>
                         <div className="form-group">
-                            <label>Password</label>
+                            <label>Пароль</label>
                             <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                             <ErrorMessage name="password" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group">
-                            <label>Confirm Password</label>
+                            <label>Повтор пароля</label>
                             <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
                             <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
                         </div>
@@ -78,9 +78,9 @@ function ResetPassword({ history }) {
                             <div className="form-group col">
                                 <button type="submit" disabled={isSubmitting} className="btn btn-primary">
                                     {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                                    Reset Password
+                                    Сброс пароля
                                 </button>
-                                <Link to="login" className="btn btn-link">Cancel</Link>
+                                <Link to="login" className="btn btn-link">Отмена</Link>
                             </div>
                         </div>
                     </Form>
@@ -94,15 +94,15 @@ function ResetPassword({ history }) {
             case TokenStatus.Valid:
                 return getForm();
             case TokenStatus.Invalid:
-                return <div>Token validation failed, if the token has expired you can get a new one at the <Link to="forgot-password">forgot password</Link> page.</div>;
+                return <div>Проверка токена не удалась, если токен истек, вы можете получить новый в <Link to="forgot-password">забыли пароль</Link> странице.</div>;
             case TokenStatus.Validating:
-                return <div>Validating token...</div>;
+                return <div>Проверка токена...</div>;
         }
     }
 
     return (
         <div>
-            <h3 className="card-header">Reset Password</h3>
+            <h3 className="card-header">Сброс пароля</h3>
             <div className="card-body">{getBody()}</div>
         </div>
     )

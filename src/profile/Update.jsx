@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import {BsCheck, BsTrash} from 'react-icons/bs'
 
 import { accountService, alertService } from '@/_services';
 
@@ -61,7 +62,7 @@ function Update({ history }) {
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             {({ errors, touched, isSubmitting }) => (
                 <Form>
-                    <h1>Update Profile</h1>
+                    <h1>Обновить Профиль</h1>
                     <div className="form-row">
                         <div className="form-group col">
                             <label>Title</label>
@@ -75,31 +76,31 @@ function Update({ history }) {
                             <ErrorMessage name="title" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group col-5">
-                            <label>First Name</label>
+                            <label>Фамилиля</label>
                             <Field name="firstName" type="text" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
                             <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group col-5">
-                            <label>Last Name</label>
+                            <label>Имя</label>
                             <Field name="lastName" type="text" className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
                             <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
                         </div>
                     </div>
                     <div className="form-group">
-                        <label>Email</label>
+                        <label>Почта</label>
                         <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
                         <ErrorMessage name="email" component="div" className="invalid-feedback" />
                     </div>
-                    <h3 className="pt-3">Change Password</h3>
-                    <p>Leave blank to keep the same password</p>
+                    <h3 className="pt-3">Поменять пароль</h3>
+                    <p>Оставьте пустым, чтобы сохранить тот же пароль</p>
                     <div className="form-row">
                         <div className="form-group col">
-                            <label>Password</label>
+                            <label>Пароль</label>
                             <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                             <ErrorMessage name="password" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group col">
-                            <label>Confirm Password</label>
+                            <label>Подтвердить пароль</label>
                             <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
                             <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
                         </div>
@@ -107,15 +108,15 @@ function Update({ history }) {
                     <div className="form-group">
                         <button type="submit" disabled={isSubmitting} className="btn btn-primary mr-2">
                             {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                            Update
+                            <BsCheck />
                         </button>
                         <button type="button" onClick={() => onDelete()} className="btn btn-danger" style={{ width: '75px' }} disabled={isDeleting}>
                             {isDeleting
                                 ? <span className="spinner-border spinner-border-sm"></span>
-                                : <span>Delete</span>
+                                : <span><BsTrash /></span>
                             }
                         </button>
-                        <Link to="." className="btn btn-link">Cancel</Link>
+                        <Link to="." className="btn btn-link">Отмена</Link>
                     </div>
                 </Form>
             )}

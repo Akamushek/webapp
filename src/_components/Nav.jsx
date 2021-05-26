@@ -19,12 +19,12 @@ function Nav() {
         <div>
             <nav className="navbar navbar-expand navbar-dark bg-dark">
                 <div className="navbar-nav">
-                    <NavLink exact to="/" className="nav-item nav-link">Home</NavLink>
-                    <NavLink to="/profile" className="nav-item nav-link">Profile</NavLink>
+                    <NavLink exact to="/" className="nav-item nav-link">Главная страница</NavLink>
+                    <NavLink to="/profile" className="nav-item nav-link">Профиль</NavLink>
                     {user.role === Role.Admin &&
-                        <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
+                        <NavLink to="/admin" className="nav-item nav-link">Админ панель</NavLink>
                     }
-                    <a onClick={accountService.logout} className="nav-item nav-link">Logout</a>
+                    <a onClick={accountService.logout} className="nav-item nav-link">Выйти</a>
                 </div>
             </nav>
             <Route path="/admin" component={AdminNav} />
@@ -38,7 +38,13 @@ function AdminNav({ match }) {
     return (
         <nav className="admin-nav navbar navbar-expand navbar-light">
             <div className="navbar-nav">
-                <NavLink to={`${path}/users`} className="nav-item nav-link">Users</NavLink>
+                <NavLink to={`${path}/users`} className="nav-item nav-link">Пользователи</NavLink>
+                <NavLink to={`${path}/`} className="nav-item nav-link">Уведомления</NavLink>
+                <NavLink to={`${path}/polls`} className="nav-item nav-link">Опросы</NavLink>
+                <NavLink to={`${path}/`} className="nav-item nav-link">Вакансии</NavLink>
+                <NavLink to={`${path}/`} className="nav-item nav-link">Журнал</NavLink>
+                <NavLink to={`${path}/`} className="nav-item nav-link">SLAM</NavLink>
+                <NavLink to={`${path}/`} className="nav-item nav-link">Опастность</NavLink>
             </div>
         </nav>
     );

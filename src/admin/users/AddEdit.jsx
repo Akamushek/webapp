@@ -92,7 +92,7 @@ function AddEdit({ history, match }) {
                         <h1>{isAddMode ? 'Add User' : 'Edit User'}</h1>
                         <div className="form-row">
                             <div className="form-group col">
-                                <label>Title</label>
+                                <label>Заглавие</label>
                                 <Field name="title" as="select" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')}>
                                     <option value=""></option>
                                     <option value="Mr">Mr</option>
@@ -103,46 +103,46 @@ function AddEdit({ history, match }) {
                                 <ErrorMessage name="title" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
-                                <label>First Name</label>
+                                <label>Фамилия</label>
                                 <Field name="firstName" type="text" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
                                 <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
-                                <label>Last Name</label>
+                                <label>Имя</label>
                                 <Field name="lastName" type="text" className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
                                 <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
                             </div>
                         </div>
                         <div className="form-row">
                             <div className="form-group col-7">
-                                <label>Email</label>
+                                <label>Почта</label>
                                 <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
                                 <ErrorMessage name="email" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col">
-                                <label>Role</label>
+                                <label>Роль</label>
                                 <Field name="role" as="select" className={'form-control' + (errors.role && touched.role ? ' is-invalid' : '')}>
                                     <option value=""></option>
-                                    <option value="User">User</option>
-                                    <option value="Admin">Admin</option>
+                                    <option value="Manager">Менеджер</option>
+                                    <option value="Admin">Админ</option>
                                 </Field>
                                 <ErrorMessage name="role" component="div" className="invalid-feedback" />
                             </div>
                         </div>
                         {!isAddMode &&
                             <div>
-                                <h3 className="pt-3">Change Password</h3>
-                                <p>Leave blank to keep the same password</p>
+                                <h3 className="pt-3">Поменять пароль</h3>
+                                <p>Оставьте пустым, чтобы сохранить тот же пароль</p>
                             </div>
                         }
                         <div className="form-row">
                             <div className="form-group col">
-                                <label>Password</label>
+                                <label>Пароль</label>
                                 <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                                 <ErrorMessage name="password" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col">
-                                <label>Confirm Password</label>
+                                <label>Повтор пароля</label>
                                 <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
                                 <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
                             </div>
@@ -150,9 +150,9 @@ function AddEdit({ history, match }) {
                         <div className="form-group">
                             <button type="submit" disabled={isSubmitting} className="btn btn-primary">
                                 {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                                Save
+                                Сохранить
                             </button>
-                            <Link to={isAddMode ? '.' : '..'} className="btn btn-link">Cancel</Link>
+                            <Link to={isAddMode ? '.' : '..'} className="btn btn-link">Отменить</Link>
                         </div>
                     </Form>
                 );

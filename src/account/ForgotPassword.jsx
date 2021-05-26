@@ -28,7 +28,7 @@ function ForgotPassword() {
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             {({ errors, touched, isSubmitting }) => (
                 <Form>
-                    <h3 className="card-header">Forgot Password</h3>
+                    <h3 className="card-header">Забыл пароль</h3>
                     <div className="card-body">
                         <div className="form-group">
                             <label>Email</label>
@@ -39,9 +39,9 @@ function ForgotPassword() {
                             <div className="form-group col">
                                 <button type="submit" disabled={isSubmitting} className="btn btn-primary">
                                     {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                                    Submit
+                                    Подтвердить
                                 </button>
-                                <Link to="login" className="btn btn-link">Cancel</Link>
+                                <Link to="login" className="btn btn-link">Отменить</Link>
                             </div>
                         </div>
                     </div>
